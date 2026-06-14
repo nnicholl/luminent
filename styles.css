@@ -37,10 +37,14 @@ body {
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   font-weight: 300;
   line-height: 1.6;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  overscroll-behavior: none;
   position: relative;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%; /* stop iOS auto-inflating text */
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* ---------- Ambient aurora ---------- */
@@ -148,7 +152,12 @@ body {
   min-height: 100svh;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  padding: clamp(1.5rem, 4vw, 3rem);
+  /* base padding plus device safe-area insets (notch / home bar) */
+  padding: clamp(1.25rem, 4vw, 3rem);
+  padding-top: calc(clamp(1.25rem, 4vw, 3rem) + env(safe-area-inset-top));
+  padding-bottom: calc(clamp(1.25rem, 4vw, 3rem) + env(safe-area-inset-bottom));
+  padding-left: calc(clamp(1.25rem, 4vw, 3rem) + env(safe-area-inset-left));
+  padding-right: calc(clamp(1.25rem, 4vw, 3rem) + env(safe-area-inset-right));
 }
 
 .topline,
@@ -311,12 +320,67 @@ body {
 }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 520px) {
+
+/* Phones (portrait) */
+@media (max-width: 600px) {
   .wordmark {
-    letter-spacing: 0.08em;
+    letter-spacing: 0.07em;
+    margin-left: 0.07em;
+  }
+  .status,
+  .footline {
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
+  }
+  .lede {
+    max-width: 36ch;
+  }
+  /* Heavy blur is GPU-expensive on phones — dial it back to avoid jank
+     while keeping the same soft glow. */
+  .orb {
+    filter: blur(64px);
+  }
+  .orb--one {
+    width: 80vmax;
+    height: 80vmax;
+  }
+  .orb--two {
+    width: 62vmax;
+    height: 62vmax;
+  }
+}
+
+/* Narrow / older phones */
+@media (max-width: 360px) {
+  .wordmark {
+    font-size: clamp(2.2rem, 14vw, 3rem);
+    letter-spacing: 0.04em;
+    margin-left: 0.04em;
   }
   .status__label {
-    letter-spacing: 0.18em;
+    letter-spacing: 0.14em;
+  }
+  /* Stack the footer so the year never collides with the domain */
+  .footline {
+    flex-direction: column;
+    gap: 0.4rem;
+    text-align: center;
+  }
+}
+
+/* Short landscape (phones turned sideways) — keep everything on one screen */
+@media (max-height: 480px) and (orientation: landscape) {
+  .stage {
+    grid-template-rows: auto 1fr auto;
+  }
+  .hero {
+    padding: 0.5rem 0;
+  }
+  .wordmark {
+    font-size: clamp(2rem, 9vh, 4rem);
+  }
+  .lede {
+    display: none; /* protect vertical space on tiny landscape viewports */
   }
 }
 
