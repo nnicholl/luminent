@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="46%" r="55%">
+      <stop offset="0%" stop-color="#171a2b"/>
+      <stop offset="100%" stop-color="#050507"/>
+    </radialGradient>
+    <linearGradient id="ink" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#7ef0ff"/>
+      <stop offset="100%" stop-color="#c9a8ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="600" cy="250" r="170" fill="#8fb4ff" opacity="0.18"/>
+  <text x="600" y="330" text-anchor="middle"
+        font-family="'Space Grotesk', Arial, sans-serif" font-weight="600"
+        font-size="120" letter-spacing="14" fill="url(#ink)">LUMINENT</text>
+  <text x="600" y="400" text-anchor="middle"
+        font-family="Arial, sans-serif" font-size="30" letter-spacing="2"
+        fill="#f5f5f7" opacity="0.65">Something luminous is coming.</text>
+</svg>

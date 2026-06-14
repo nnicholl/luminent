@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Luminent</title>
+  <meta name="description" content="Something luminous is coming. Luminent is building in stealth." />
+  <meta name="theme-color" content="#050507" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / social link previews -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Luminent" />
+  <meta property="og:description" content="Something luminous is coming." />
+  <meta property="og:url" content="https://luminent.ai" />
+  <meta property="og:image" content="https://luminent.ai/assets/og.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Luminent" />
+  <meta name="twitter:description" content="Something luminous is coming." />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="canonical" href="https://luminent.ai/" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Ambient light that drifts and reacts to the cursor -->
+  <div class="aurora" aria-hidden="true">
+    <span class="orb orb--one"></span>
+    <span class="orb orb--two"></span>
+  </div>
+
+  <!-- Film grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <main class="stage">
+    <header class="topline">
+      <span class="status">
+        <span class="status__dot" aria-hidden="true"></span>
+        <span class="status__label">In stealth</span>
+      </span>
+    </header>
+
+    <section class="hero">
+      <h1 class="wordmark" aria-label="Luminent">
+        <span class="wordmark__text">LUMINENT</span>
+      </h1>
+      <p class="tagline">Something luminous is coming.</p>
+      <p class="lede">
+        We are building, quietly, toward a moment that changes what you
+        thought was possible. When it arrives, you will see everything
+        in a different light.
+      </p>
+    </section>
+
+    <footer class="footline">
+      <span class="footline__mark">luminent.ai</span>
+      <span class="footline__year">MMXXVI</span>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
