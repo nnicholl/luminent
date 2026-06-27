@@ -209,39 +209,17 @@ body {
   padding: 2rem 0;
 }
 
-.wordmark {
-  font-family: "Space Grotesk", system-ui, sans-serif;
-  font-weight: 600;
-  font-size: clamp(2.6rem, 11vw, 7rem);
-  letter-spacing: 0.14em;
-  line-height: 1;
-  margin-left: 0.14em; /* optical centering for tracking */
-
-  background: linear-gradient(
-    100deg,
-    #ffffff 0%,
-    #ffffff 38%,
-    var(--glow-c) 50%,
-    var(--glow-b) 58%,
-    #ffffff 70%,
-    #ffffff 100%
-  );
-  background-size: 220% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  animation: sheen 7s ease-in-out infinite;
+.logo {
+  display: block;
+  margin: 0 auto;
+  line-height: 0;
 }
 
-@keyframes sheen {
-  0%,
-  100% {
-    background-position: 140% center;
-  }
-  50% {
-    background-position: -40% center;
-  }
+.logo__mark {
+  display: block;
+  width: clamp(220px, 46vw, 440px);
+  height: auto;
+  margin: 0 auto;
 }
 
 .tagline {
@@ -262,7 +240,7 @@ body {
 
 /* staged entrance */
 .status,
-.wordmark,
+.logo,
 .tagline,
 .lede,
 .footline__mark,
@@ -271,8 +249,8 @@ body {
   animation-timing-function: var(--ease);
   animation-fill-mode: both;
 }
-.wordmark {
-  animation: sheen 7s ease-in-out infinite, rise 1.4s var(--ease) both;
+.logo {
+  animation: rise 1.4s var(--ease) both;
 }
 .status {
   animation: rise 1.2s var(--ease) both;
@@ -323,10 +301,6 @@ body {
 
 /* Phones (portrait) */
 @media (max-width: 600px) {
-  .wordmark {
-    letter-spacing: 0.07em;
-    margin-left: 0.07em;
-  }
   .status,
   .footline {
     font-size: 0.66rem;
@@ -352,10 +326,8 @@ body {
 
 /* Narrow / older phones */
 @media (max-width: 360px) {
-  .wordmark {
-    font-size: clamp(2.2rem, 14vw, 3rem);
-    letter-spacing: 0.04em;
-    margin-left: 0.04em;
+  .logo__mark {
+    width: clamp(180px, 60vw, 280px);
   }
   .status__label {
     letter-spacing: 0.14em;
@@ -376,8 +348,8 @@ body {
   .hero {
     padding: 0.5rem 0;
   }
-  .wordmark {
-    font-size: clamp(2rem, 9vh, 4rem);
+  .logo__mark {
+    width: clamp(180px, 32vh, 320px);
   }
   .lede {
     display: none; /* protect vertical space on tiny landscape viewports */
@@ -391,8 +363,5 @@ body {
   *::after {
     animation: none !important;
     transition: none !important;
-  }
-  .wordmark {
-    background-position: 50% center;
   }
 }
